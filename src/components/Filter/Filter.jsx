@@ -1,20 +1,30 @@
-import React, { Component } from "react";
+import React from "react";
+import { onFilter } from "../../redux/actions";
+import { connect } from "react-redux";
+import styles from "./Filter.module.css";
 
-class Filter extends Component {
-  render() {
-    const { filter, filterContacts } = this.props;
-    return (
-      <label>
-        Find Contacts by name
-        <input
-          type="text"
-          placeholder="найти контакт"
-          value={filter}
-          onChange={filterContacts}
-        />
-      </label>
-    );
-  }
+function Filter(props) {
+  const { onFilter } = props;
+  const onHandleFilter = (e) => {
+    onFilter(e.target.value);
+  };
+  return (
+    <label className={styles.label}>
+      Find Contacts by name
+      <input
+        type="text"
+        placeholder="найти контакт"
+        onChange={onHandleFilter}
+        className={styles.input}
+      />
+    </label>
+  );
 }
 
-export default Filter;
+const mapStateToProps = (state) => {
+  return {
+    filter: state.filter,
+  };
+};
+
+export default connect(mapStateToProps, { onFilter })(Filter);

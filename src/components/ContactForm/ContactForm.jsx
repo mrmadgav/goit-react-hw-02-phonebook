@@ -27,12 +27,11 @@ class ContactForm extends Component {
           Phone Number
           <input
             type="tel"
-            placeholder="777-888-99"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}"
+            placeholder="777-888-99-00"
+            // pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
             value={number}
             onChange={handleChangeNumber}
             className={styles.contactInput}
-            required
           />
         </label>
         <button type="submit" className={styles.contactAddBtn}>
