@@ -9,8 +9,6 @@ export const onFilter = createAction("phone/filter");
 Axios.defaults.baseURL = "http://localhost:3004";
 
 export const addContact = (data) => (dispatch) => {
-  console.log("Data, которая пришла в AddContact", data);
-
   dispatch({ type: "contacts/addRequest" });
 
   Axios.post("/contacts", data)
@@ -22,7 +20,6 @@ export const addContact = (data) => (dispatch) => {
 
 export const getContact = () => (dispatch) => {
   dispatch({ type: "contacts/getRequest" });
-  console.log("Пытаемся получить контакт");
 
   Axios.get("/contacts")
     .then(({ data }) =>
@@ -33,7 +30,6 @@ export const getContact = () => (dispatch) => {
 
 export const deleteContact = (id) => (dispatch) => {
   dispatch({ type: "contacts/deleteRequest" });
-  console.log("Пытаемся удалить контакт");
 
   Axios.delete(`/contacts/${id}`)
     .then(() => dispatch({ type: "contacts/deleteSuccess", payload: id }))
