@@ -7,18 +7,18 @@ class ContactForm extends Component {
       name,
       number,
       handleSubmit,
-      handleChangeName,
-      handleChangeNumber,
+      handleChange,
     } = this.props;
     return (
       <form onSubmit={handleSubmit}>
         <label className={styles.formLabel}>
           Name
           <input
+            name='name'
             type="text"
             placeholder="Ilon Mask"
             value={name}
-            onChange={handleChangeName}
+            onChange={handleChange}
             className={styles.contactInput}
             required
           />
@@ -26,11 +26,12 @@ class ContactForm extends Component {
         <label className={styles.formLabel}>
           Phone Number
           <input
+            name='number'
             type="tel"
             placeholder="777-888-99-00"
             // pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
             value={number}
-            onChange={handleChangeNumber}
+            onChange={handleChange}
             className={styles.contactInput}
           />
         </label>

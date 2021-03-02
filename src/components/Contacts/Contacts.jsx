@@ -1,12 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { onDelete } from "../../redux/actions";
+import { deleteContact } from "../../redux/actions";
 import styles from "./Contacts.module.css";
+import { allContacts, filterValue } from "../../redux/selectors";
 
 function Contacts(props) {
-  const { contacts, filter, onDelete } = props;
+  const { contacts, filter, deleteContact } = props;
   const onHandleDelete = (e) => {
-    onDelete(e.target.id);
+    deleteContact(e.target.id);
   };
   return (
     <div>
@@ -37,9 +38,9 @@ function Contacts(props) {
 }
 const mapStateToProps = (state) => {
   return {
-    contacts: state.items,
-    filter: state.filter,
+    contacts: allContacts(state),
+    filter: filterValue(state),
   };
 };
 
-export default connect(mapStateToProps, { onDelete })(Contacts);
+export default connect(mapStateToProps, { deleteContact })(Contacts);

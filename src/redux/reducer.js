@@ -1,6 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { onMount, onSubmit, onDelete, onFilter } from "./actions";
-import { v4 as uuidv4 } from "uuid";
+import { addSucsess, getSucsess, deleteSuccess, onFilter } from "./actions";
 
 const state = {
   contacts: {
@@ -10,24 +9,24 @@ const state = {
 };
 
 export default createReducer(state.contacts, {
-  [onMount]: (state, { payload }) => ({
+  [getSucsess]: (state, { payload }) => ({
     ...state,
     items: [...state.items, ...payload],
   }),
-  [onSubmit]: (state, { payload }) => ({
+  [addSucsess]: (state, { payload }) => ({
     ...state,
     items: [
       ...state.items,
       {
         name: payload.name,
         number: payload.number,
-        id: uuidv4(),
+        id: payload.id,
       },
     ],
   }),
-  [onDelete]: (state, { payload }) => ({
+  [deleteSuccess]: (state, { payload }) => ({
     ...state,
-    items: [...state.items.filter((i) => i.id !== payload)],
+    items: [...state.items.filter((i) => i.id !== parseInt(payload))],
   }),
   [onFilter]: (state, { payload }) => ({
     ...state,

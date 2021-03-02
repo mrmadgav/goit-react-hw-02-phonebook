@@ -2,6 +2,7 @@ import React from "react";
 import { onFilter } from "../../redux/actions";
 import { connect } from "react-redux";
 import styles from "./Filter.module.css";
+import { filterValue } from "../../redux/selectors";
 
 function Filter(props) {
   const { onFilter } = props;
@@ -23,7 +24,7 @@ function Filter(props) {
 
 const mapStateToProps = (state) => {
   return {
-    filter: state.filter,
+    filter: filterValue(state),
   };
 };
 
