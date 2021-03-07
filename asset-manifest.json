@@ -1,23 +1,27 @@
 {
   "files": {
-    "main.css": "/goit-react-hw-02-phonebook/static/css/main.3be46d03.chunk.css",
-    "main.js": "/goit-react-hw-02-phonebook/static/js/main.968130bc.chunk.js",
-    "main.js.map": "/goit-react-hw-02-phonebook/static/js/main.968130bc.chunk.js.map",
+    "main.css": "/goit-react-hw-02-phonebook/static/css/main.7b62024e.chunk.css",
+    "main.js": "/goit-react-hw-02-phonebook/static/js/main.d35098a9.chunk.js",
+    "main.js.map": "/goit-react-hw-02-phonebook/static/js/main.d35098a9.chunk.js.map",
     "runtime-main.js": "/goit-react-hw-02-phonebook/static/js/runtime-main.c47bf07c.js",
     "runtime-main.js.map": "/goit-react-hw-02-phonebook/static/js/runtime-main.c47bf07c.js.map",
     "static/css/2.de71bbd8.chunk.css": "/goit-react-hw-02-phonebook/static/css/2.de71bbd8.chunk.css",
-    "static/js/2.6b7a5803.chunk.js": "/goit-react-hw-02-phonebook/static/js/2.6b7a5803.chunk.js",
-    "static/js/2.6b7a5803.chunk.js.map": "/goit-react-hw-02-phonebook/static/js/2.6b7a5803.chunk.js.map",
+    "static/js/2.a61a6b7b.chunk.js": "/goit-react-hw-02-phonebook/static/js/2.a61a6b7b.chunk.js",
+    "static/js/2.a61a6b7b.chunk.js.map": "/goit-react-hw-02-phonebook/static/js/2.a61a6b7b.chunk.js.map",
     "index.html": "/goit-react-hw-02-phonebook/index.html",
     "static/css/2.de71bbd8.chunk.css.map": "/goit-react-hw-02-phonebook/static/css/2.de71bbd8.chunk.css.map",
-    "static/css/main.3be46d03.chunk.css.map": "/goit-react-hw-02-phonebook/static/css/main.3be46d03.chunk.css.map",
-    "static/js/2.6b7a5803.chunk.js.LICENSE.txt": "/goit-react-hw-02-phonebook/static/js/2.6b7a5803.chunk.js.LICENSE.txt"
+    "static/css/main.7b62024e.chunk.css.map": "/goit-react-hw-02-phonebook/static/css/main.7b62024e.chunk.css.map",
+    "static/js/2.a61a6b7b.chunk.js.LICENSE.txt": "/goit-react-hw-02-phonebook/static/js/2.a61a6b7b.chunk.js.LICENSE.txt",
+    "static/media/animation.46a38fcd.gif": "/goit-react-hw-02-phonebook/static/media/animation.46a38fcd.gif",
+    "static/media/ava-octocat.3ad91461.png": "/goit-react-hw-02-phonebook/static/media/ava-octocat.3ad91461.png",
+    "static/media/deleteIcon.3ef1c6cb.svg": "/goit-react-hw-02-phonebook/static/media/deleteIcon.3ef1c6cb.svg",
+    "static/media/phoneBookTitleImg.70dbc878.jpg": "/goit-react-hw-02-phonebook/static/media/phoneBookTitleImg.70dbc878.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.c47bf07c.js",
     "static/css/2.de71bbd8.chunk.css",
-    "static/js/2.6b7a5803.chunk.js",
-    "static/css/main.3be46d03.chunk.css",
-    "static/js/main.968130bc.chunk.js"
+    "static/js/2.a61a6b7b.chunk.js",
+    "static/css/main.7b62024e.chunk.css",
+    "static/js/main.d35098a9.chunk.js"
   ]
 }
