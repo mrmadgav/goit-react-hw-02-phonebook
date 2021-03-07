@@ -1,13 +1,18 @@
 {
   "contacts": [
     {
-      "name": "dog'",
-      "number": "",
+      "name": "Marie",
+      "number": "323-231-32-23",
+      "id": 1
+    },
+    {
+      "name": "John",
+      "number": "323-231-32-23",
       "id": 2
     },
     {
-      "name": "cat",
-      "number": "",
+      "name": "Vasya",
+      "number": "546-643-23-32",
       "id": 3
     }
   ]

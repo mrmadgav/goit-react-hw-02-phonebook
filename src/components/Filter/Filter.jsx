@@ -1,5 +1,5 @@
 import React from "react";
-import { onFilter } from "../../redux/actions";
+import { onFilter } from "../../redux/Contact-actions";
 import { connect } from "react-redux";
 import styles from "./Filter.module.css";
 import { filterValue } from "../../redux/selectors";
@@ -16,7 +16,7 @@ function Filter(props) {
         type="text"
         placeholder="найти контакт"
         onChange={onHandleFilter}
-        className={styles.input}
+        className={styles.filterInput}
       />
     </label>
   );

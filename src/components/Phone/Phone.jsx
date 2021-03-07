@@ -3,8 +3,9 @@ import Contacts from "../Contacts/Contacts";
 import Filter from "../Filter/Filter";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import { connect } from "react-redux";
-import { addContact, getContact } from "../../redux/actions";
+import { addContact, getContact } from "../../redux/Contact-operations";
 import { allContacts, contactName, contactNumber } from "../../redux/selectors";
+import styles from "./Phone.module.css";
 
 class Phone extends Component {
   state = {
@@ -33,8 +34,8 @@ class Phone extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Phone Book</h1>
+      <div className={styles.PhoneWrapper}>
+        <h1 className={styles.PhoneTitle}>Phone Book</h1>
         <ContactForm
           name={this.state.name}
           number={this.state.number}

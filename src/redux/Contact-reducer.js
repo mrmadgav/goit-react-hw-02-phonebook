@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { addSucsess, getSucsess, deleteSuccess, onFilter } from "./actions";
+import contactActions from "./Contact-actions";
 
 const state = {
   contacts: {
@@ -9,11 +9,11 @@ const state = {
 };
 
 export default createReducer(state.contacts, {
-  [getSucsess]: (state, { payload }) => ({
+  [contactActions.getSuccess]: (state, { payload }) => ({
     ...state,
-    items: [...state.items, ...payload],
+    items: [...payload],
   }),
-  [addSucsess]: (state, { payload }) => ({
+  [contactActions.addSuccess]: (state, { payload }) => ({
     ...state,
     items: [
       ...state.items,
@@ -24,11 +24,11 @@ export default createReducer(state.contacts, {
       },
     ],
   }),
-  [deleteSuccess]: (state, { payload }) => ({
+  [contactActions.deleteSuccess]: (state, { payload }) => ({
     ...state,
-    items: [...state.items.filter((i) => i.id !== parseInt(payload))],
+    items: [...state.items.filter((i) => i.id !== payload)],
   }),
-  [onFilter]: (state, { payload }) => ({
+  [contactActions.onFilter]: (state, { payload }) => ({
     ...state,
     filter: payload,
   }),

@@ -4,11 +4,51 @@
   border: none;
   padding: 10px;
   cursor: pointer;
+  background: none;
 }
 .contactList {
   list-style-type: none;
+  padding: 0px;
+  margin: 0px;
 }
 .contactElem {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  /* margin-top: 10px; */
+  /* margin-bottom: 10px; */
+  /* background: {
+    url("../../images/bookLine.png"),
+    opacity: 0.5;
+    size: contain
+  }; */
+  background-image: url("../../images/bookLine.png");
+  background-size: contain;
+}
+.deleteImg {
+  width: 30px;
+  height: 30px;
+  background-color: none;
+}
+.contactItemName {
+  font-family: "Franklin Gothic Medium";
+  font-style: italic;
+  font-size: 22px;
+  color: gray;
+  padding-left: 30px;
+  /* background-image: url("../../images/bookLine.png"); */
+  /* background-repeat: no-repeat; */
+  /* height: 20px; */
+}
+.contactItemNumber {
+  font-family: "Franklin Gothic Medium";
+  font-size: 18px;
+  color: #355681;
+  /* background-image: url("../../images/bookLine.png"); */
+  /* background-repeat: no-repeat; */
+  /* height: 20px; */
+}
+.bookHead {
+  margin-top: 20px;
+  opacity: 0.5;
+}
+.allcontactsWrapper {
+  width: fit-content;
 }

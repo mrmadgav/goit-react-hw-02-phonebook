@@ -1,29 +1,17 @@
-.formLabel {
-  margin-right: 10px;
-}
-.contactInput {
-  margin-left: 10px;
-  border: 1px solid steelblue;
-  border-radius: 4px;
-  padding: 12px 20px;
-}
-.contactInput:focus {
-  border: none;
-  outline: 0;
-  outline-offset: 0;
-  box-shadow: 0 0 0 2px coral inset, 0 0 0 4px white inset;
-}
-.contactAddBtn {
+.registerWrapper {
+  display: block;
+  text-align: center;
+  width: 350px;
+  margin: 0 auto;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  padding: 50px;
   border-radius: 5px;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
 }
-
-.contactFormTitle {
+.registerFormTitle {
+  display: block;
   margin-top: 20px;
   margin-bottom: 7px;
-
+  /* padding-right: 100px; */
   text-align: left;
   padding-left: 10px;
 
@@ -31,22 +19,35 @@
   font-size: 15px;
   color: #355681;
 }
-.contactBtn {
+.regBtn {
   border: 1px solid lightgray;
   border-radius: 4px;
-  margin-left: 20px;
   margin-top: 20px;
   padding: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
   -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
   transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
   background-color: white;
   cursor: pointer;
 }
-.contactBtn:hover {
+.regBtn:hover {
   box-shadow: 0 0 40px 40px coral inset;
   color: white;
   /* transition: color 300ms ease-in-out, color 300ms ease-in-out; */
 }
-
+.regMainTitle {
+  padding-right: 100px;
+  color: steelblue;
+}
+.regInput {
+  border: 1px solid steelblue;
+  border-radius: 4px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+}
+.regInput:focus {
+  border: none;
+  outline: 0;
+  outline-offset: 0;
+  box-shadow: 0 0 0 2px coral inset, 0 0 0 4px white inset;
+}
