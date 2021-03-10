@@ -52,11 +52,12 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://mrmadgav.github.io/",
+  "homepage": "https://mrmadgav.github.io/goit-react-hw-02-phonebook/",
   "devDependencies": {
     "husky": "^5.0.9",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
+    "react-edit-inline": "^1.0.8",
     "redux-devtools-extension": "^2.13.8"
   }
 }
