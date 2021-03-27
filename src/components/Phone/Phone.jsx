@@ -1,55 +1,27 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import Contacts from "../Contacts/Contacts";
 import Filter from "../Filter/Filter";
 import ContactForm from "../../components/ContactForm/ContactForm";
-import { connect } from "react-redux";
-import { addContact, getContact } from "../../redux/Contact-operations";
-import { allContacts, contactName, contactNumber } from "../../redux/selectors";
 import styles from "./Phone.module.css";
+import { getContact } from "../../redux/Contact-operations";
+import { allContacts, contactName, contactNumber } from "../../redux/selectors";
+import { connect } from "react-redux";
 
-class Phone extends Component {
-  state = {
-    name: "",
-    number: "",
-  };
+const Phone = ({ getContact }, contacts) => {
+  useEffect(() => {
+    getContact();
+  }, [contacts, getContact]);
 
-  handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  componentDidMount() {
-    this.props.getContact();
-  }
-  handleSubmit = (e) => {
-    e.preventDefault();
-    if (!this.props.contacts.some((i) => i.name === this.state.name)) {
-      this.props.addContact({
-        name: this.state.name,
-        number: this.state.number,
-      });
-    } else {
-      alert(`${this.state.name} уже есть в списке`);
-    }
-  };
-
-  render() {
-    return (
-      <div className={styles.PhoneWrapper}>
-        <h1 className={styles.PhoneTitle}>Phone Book</h1>
-        <ContactForm
-          name={this.state.name}
-          number={this.state.number}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-        />
-        <h2>Contacts</h2>
-        <Filter />
-        <Contacts />
-      </div>
-    );
-  }
-}
-
+  return (
+    <div className={styles.PhoneWrapper}>
+      <h1 className={styles.PhoneTitle}>Phone Book</h1>
+      <ContactForm />
+      <h2>Contacts</h2>
+      <Filter />
+      <Contacts />
+    </div>
+  );
+};
 const mapStateToProps = (state) => {
   return {
     name: contactName(state),
@@ -58,4 +30,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { addContact, getContact })(Phone);
+export default connect(mapStateToProps, { getContact })(Phone);
