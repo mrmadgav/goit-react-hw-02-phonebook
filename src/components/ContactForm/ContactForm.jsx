@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import styles from "./ContactForm.module.css";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { addContact } from "../../redux/Contact-operations";
-import { allContacts, contactName, contactNumber } from "../../redux/selectors";
+import { allContacts } from "../../redux/selectors";
 
-const ContactForm = ({ contacts, addContact, getContact }) => {
+const ContactForm = () => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
+  const dispatch = useDispatch();
+  const getAll = useSelector(allContacts);
 
   const updateName = (evt) => {
     setName(evt.target.value);
@@ -17,11 +19,13 @@ const ContactForm = ({ contacts, addContact, getContact }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!contacts.some((i) => i.name === name)) {
-      addContact({
-        name: name,
-        number: number,
-      });
+    if (!getAll.some((i) => i.name === name)) {
+      dispatch(
+        addContact({
+          name: name,
+          number: number,
+        })
+      );
     } else {
       alert(`${name} уже есть в списке`);
     }
@@ -60,12 +64,4 @@ const ContactForm = ({ contacts, addContact, getContact }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    name: contactName(state),
-    number: contactNumber(state),
-    contacts: allContacts(state),
-  };
-};
-
-export default connect(mapStateToProps, { addContact })(ContactForm);
+export default ContactForm;

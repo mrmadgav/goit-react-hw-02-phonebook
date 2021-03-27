@@ -1,13 +1,13 @@
 import React from "react";
 import { onFilter } from "../../redux/Contact-actions";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import styles from "./Filter.module.css";
-import { filterValue } from "../../redux/selectors";
 
-function Filter(props) {
-  const { onFilter } = props;
+function Filter() {
+  const dispatch = useDispatch();
+
   const onHandleFilter = (e) => {
-    onFilter(e.target.value);
+    dispatch(onFilter(e.target.value));
   };
   return (
     <label className={styles.label}>
@@ -22,10 +22,4 @@ function Filter(props) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    filter: filterValue(state),
-  };
-};
-
-export default connect(mapStateToProps, { onFilter })(Filter);
+export default Filter;

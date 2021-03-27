@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login } from "../Auth-operations";
 import styles from "./Login.module.css";
 import mainAnimation from "../../../images/animation.gif";
 
-const Login = ({ onLogin }) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
 
   const updateEmail = (evt) => {
     setEmail(evt.target.value);
@@ -17,7 +19,7 @@ const Login = ({ onLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onLogin({ email, password });
+    dispatch(login({ email, password }));
   };
   return (
     <div className={styles.loginWrapper}>
@@ -64,8 +66,4 @@ const Login = ({ onLogin }) => {
   );
 };
 
-const mapDispatchToProps = {
-  onLogin: login,
-};
-
-export default connect(null, mapDispatchToProps)(Login);
+export default Login;

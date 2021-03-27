@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { register } from "../Auth-operations";
 import styles from "./Register.module.css";
 
-const Register = ({ onRegister }) => {
+const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
 
   const updateName = (evt) => {
     setName(evt.target.value);
@@ -20,7 +22,7 @@ const Register = ({ onRegister }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onRegister({ name, email, password });
+    dispatch(register({ name, email, password }));
   };
 
   return (
@@ -76,7 +78,4 @@ const Register = ({ onRegister }) => {
     </div>
   );
 };
-const mapDispatchToProps = {
-  onRegister: register,
-};
-export default connect(null, mapDispatchToProps)(Register);
+export default Register;

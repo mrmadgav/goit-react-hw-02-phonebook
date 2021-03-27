@@ -4,13 +4,14 @@ import Filter from "../Filter/Filter";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import styles from "./Phone.module.css";
 import { getContact } from "../../redux/Contact-operations";
-import { allContacts, contactName, contactNumber } from "../../redux/selectors";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
-const Phone = ({ getContact }, contacts) => {
+const Phone = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    getContact();
-  }, [contacts, getContact]);
+    dispatch(getContact());
+  }, [dispatch]);
 
   return (
     <div className={styles.PhoneWrapper}>
@@ -22,12 +23,5 @@ const Phone = ({ getContact }, contacts) => {
     </div>
   );
 };
-const mapStateToProps = (state) => {
-  return {
-    name: contactName(state),
-    number: contactNumber(state),
-    contacts: allContacts(state),
-  };
-};
 
-export default connect(mapStateToProps, { getContact })(Phone);
+export default Phone;

@@ -1,26 +1,29 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/Contact-operations";
 import styles from "./Contacts.module.css";
 import { allContacts, filterValue } from "../../redux/selectors";
 import deleteIcon from "../../images/deleteIcon.svg";
 import bookHead from "../../images/bookHead.png";
 
-function Contacts(props) {
-  const { contacts, filter, deleteContact } = props;
+function Contacts() {
+  const filter = useSelector(filterValue);
+  const getAll = useSelector(allContacts);
+  const dispatch = useDispatch();
+
   const onHandleDelete = (e) => {
     console.log("Айдишник", e.target.id);
-    deleteContact(e.target.id);
+    dispatch(deleteContact(e.target.id));
   };
   return (
     <div className={styles.allcontactsWrapper}>
       {
         <>
-          {contacts.length > 0 && (
+          {getAll.length > 0 && (
             <img src={bookHead} alt="" className={styles.bookHead} />
           )}
           <ul className={styles.contactList}>
-            {contacts.map((item) => {
+            {getAll.map((item) => {
               if (item.name.toLowerCase().includes(filter.toLowerCase())) {
                 return (
                   <li className={styles.contactElem} key={item.id}>
@@ -30,7 +33,9 @@ function Contacts(props) {
                     <a
                       href={`tel: ${item.number}`}
                       className={styles.contactItemNumber}
-                    >{item.number}</a>
+                    >
+                      {item.number}
+                    </a>
 
                     <button
                       className={styles.deleteBtn}
@@ -55,11 +60,4 @@ function Contacts(props) {
     </div>
   );
 }
-const mapStateToProps = (state) => {
-  return {
-    contacts: allContacts(state),
-    filter: filterValue(state),
-  };
-};
-
-export default connect(mapStateToProps, { deleteContact })(Contacts);
+export default Contacts;

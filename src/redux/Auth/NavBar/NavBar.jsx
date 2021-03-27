@@ -1,13 +1,17 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { getIsAuthenticated } from "../Auth-selectors";
+import { getIsAuthenticated, getUserName } from "../Auth-selectors";
 import defaultAvatar from "../../../images/ava-octocat.png";
 import styles from "./Navbar.module.css";
 import { logout } from "../Auth-operations";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
-const NavBar = ({ isAuthenticated, name, avatar, onLogout }) => {
+const NavBar = () => {
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector(getIsAuthenticated);
+  const userName = useSelector(getUserName);
+
   return (
     <div className={styles.navWrapper}>
       {!isAuthenticated ? (
@@ -36,12 +40,20 @@ const NavBar = ({ isAuthenticated, name, avatar, onLogout }) => {
       ) : (
         <ul className={styles.loginNav}>
           <li>
-            <span className={styles.loginTitle}>{`Hello, ${name}`}</span>
+            <span className={styles.loginTitle}>{`Hello, ${userName}`}</span>
           </li>
           <li>
-            <img src={avatar} alt="" className={styles.loginAvatar}></img>
+            <img
+              src={defaultAvatar}
+              alt=""
+              className={styles.loginAvatar}
+            ></img>
           </li>
-          <button type="button" className={styles.logoutBtn} onClick={onLogout}>
+          <button
+            type="button"
+            className={styles.logoutBtn}
+            onClick={() => dispatch(logout())}
+          >
             <ExitToAppIcon color={"primary"} className={styles.logoutBtn} />
           </button>
         </ul>
@@ -49,14 +61,5 @@ const NavBar = ({ isAuthenticated, name, avatar, onLogout }) => {
     </div>
   );
 };
-const mapDispatchToProps = {
-  onLogout: logout,
-};
 
-const mapStateToProps = (state) => ({
-  isAuthenticated: getIsAuthenticated(state),
-  name: state.authReducer.user.name,
-  avatar: defaultAvatar,
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default NavBar;
